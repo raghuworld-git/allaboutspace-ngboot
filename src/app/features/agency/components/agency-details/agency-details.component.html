@@ -1,0 +1,139 @@
+@if(agencyDetails$ | async;as item){
+
+<div class="row">
+  <div class="col-md-9 pt-2">
+    <div class="row g-2">
+      <div class="col-md-4 shadow-lg p-3 bg-body-tertiary rounded text-center">
+        <img [src]="item.logo_url" class="img-fluid rounded" />
+      </div>
+      <div class="col-md-8 text-center">
+        <div
+          class="shadow-lg p-2 bg-body-tertiary rounded"
+          style="height: 232px !important"
+        >
+          <h6 class="fw-bold text-warning text-uppercase">
+            {{ item.abbrev }} - {{ item.name }}
+          </h6>
+          <p class="mb-1" style="font-size: 90%">
+            {{ item.type }} Organization
+          </p>
+          <p class="mb-1" style="font-size: 90%">{{ item.administrator }}</p>
+          <p class="mb-1" style="font-size: 90%">
+            Headquartered at : {{ item.country_name }}
+          </p>
+          <p class="mb-0" style="font-size: 90%">
+            Founded on : {{ item.founding_year }}
+          </p>
+          <div class="p-4 fs-5">
+            <a [href]="item.info_url" target="_blank"
+              ><i class="bi bi-info-circle-fill me-3"></i
+            ></a>
+            <a [href]="item.wiki_url" target="_blank"
+              ><i class="bi bi-wikipedia"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 shadow-lg p-3 bg-body-tertiary rounded">
+        <h6 class="fw-bold">About :</h6>
+        <p style="font-size: 90%">{{ item.description }}</p>
+      </div>
+      <div class="col-12 shadow-lg p-3 bg-body-tertiary rounded">
+        <h6 class="fw-bold">Statistics :</h6>
+        <div class="row g-1">
+          <div class="col-3">
+            <app-simple-statistic-card text="Pending Launches">
+              <h3>{{ item.pending_launches }}</h3>
+            </app-simple-statistic-card>
+          </div>
+          <div class="col-3">
+            <app-simple-statistic-card text="Successful Launches">
+              <h3>{{ item.successful_launches }}</h3>
+            </app-simple-statistic-card>
+          </div>
+          <div class="col-3">
+            <app-simple-statistic-card text="Failed Launches">
+              <h3>{{ item.failed_launches }}</h3>
+            </app-simple-statistic-card>
+          </div>
+          <div class="col-3">
+            <app-simple-statistic-card text="Successful Landings">
+              <h3>{{ item.successful_landings }}</h3>
+            </app-simple-statistic-card>
+          </div>
+          <div class="col-3">
+            <app-simple-statistic-card text="Failed Landings">
+              <h3>{{ item.failed_landings }}</h3>
+            </app-simple-statistic-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 shadow-lg p-3 bg-body-tertiary rounded">
+        <h6 class="fw-bold">Launchers :</h6>
+        @if(item.launcher_list.length>0){
+        <div class="row g-1">
+          @for(launcher of item.launcher_list;track launcher.id){
+          <div class="col-6 col-md-4">
+            <app-small-horizontal-card
+              [image_url]="launcher.image_url"
+              [title]="launcher.name"
+            >
+              <div
+                class="card-body d-block text-truncate w-100"
+                [title]="launcher.name"
+                style="font-size: 0.8rem"
+              >
+                {{ $index + 1 }} <span class="mx-1">-</span>
+                {{ launcher.name }}
+                <a
+                  [routerLink]="['/launcher', launcher.id]"
+                  class="stretched-link"
+                ></a>
+              </div>
+            </app-small-horizontal-card>
+          </div>
+          }
+        </div>
+        } @else{
+        <span class="fst-italic small">
+          <app-no-data-available />
+        </span>
+        }
+      </div>
+      <div class="col-12 shadow-lg p-3 bg-body-tertiary rounded">
+        <h6 class="fw-bold">Spacecrafts :</h6>
+        @if(item.spacecraft_list.length>0){
+        <div class="row g-1">
+          @for(spacecraft of item.spacecraft_list;track spacecraft.id){
+          <div class="col-6 col-md-4">
+            <app-small-horizontal-card
+              [image_url]="spacecraft.image_url"
+              [title]="spacecraft.name"
+            >
+              <div
+                class="card-body d-block text-truncate w-100"
+                [title]="spacecraft.name"
+                style="font-size: 0.8rem"
+              >
+                {{ $index + 1 }} <span class="mx-1">-</span>
+                {{ spacecraft.name }}
+                <a
+                  [routerLink]="['/spacecraft', spacecraft.id]"
+                  class="stretched-link"
+                ></a>
+              </div>
+            </app-small-horizontal-card>
+          </div>
+          }
+        </div>
+        } @else {
+          <span class="fst-italic small">
+            <app-no-data-available />
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+}
