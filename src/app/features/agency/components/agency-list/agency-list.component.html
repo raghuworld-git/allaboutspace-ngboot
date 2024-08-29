@@ -36,27 +36,20 @@
                   > -->
                   <i class="bi bi-dot"></i> {{item.type}}
                 </p>
-                <p class="card-text mb-0 d-inline-block w-100">
-                  <i class="bi bi-dot"></i>  {{ item.administrator }}
-                </p>
-                <p class="card-text mb-3 d-inline-block  w-100">
+
+                <p class="card-text mb-4 d-inline-block  w-100">
                   <i class="bi bi-dot"></i> Headquartered in {{ item.country_name }}
                 </p>
                 <a
                   [routerLink]="['/agencies', item.id]"
-                  class="btn btn-sm btn-outline-warning text-uppercase d-none d-md-inline"
+                  class="btn btn-sm btn-outline-warning text-uppercase"
                   style="
                     --bs-btn-padding-y: 0.25rem;
                     --bs-btn-padding-x: 0.5rem;
                     --bs-btn-font-size: 0.75rem;
                   "
                   >More about the Agency
-                </a>
-                <a
-                  [routerLink]="['/agencies', item.id]"
-                  class="stretched-link d-md-none"                  
-                  >
-                </a>
+                </a>                
               </div>
             </div>
           </div>
