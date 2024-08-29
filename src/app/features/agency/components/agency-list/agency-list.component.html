@@ -30,10 +30,6 @@
                 {{ $index + 1 }} - {{ item.name }} 
                 </h6>
                 <p class="card-text d-inline-block mb-0  w-100">
-                  <!-- <span                   
-                    class="badge text-bg-light"
-                    >{{ item.type }}</span
-                  > -->
                   <i class="bi bi-dot"></i> {{item.type}}
                 </p>
                 <p class="card-text mb-0 d-none d-md-block d-inline-block w-100">
@@ -56,42 +52,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="d-xs-block d-md-none col-xs-12 mb-2">
-        <div class="card shadow w-100">
-          <img
-            [src]="item.logo_url"
-            class="card-img-top img-fluid rounded"
-            [alt]="item.name"
-          />
-          <div class="card-body text-center">
-            <h6
-              class="card-title fw-bold d-inline-block text-truncate m-0 w-100"
-              [title]="item.name"
-            >
-             {{ $index+1 }} - {{ item.name }}
-            </h6>
-            <p class="d-inline-block mb-1 text-truncate w-100">
-              <span
-                title="Launch Service Provider"
-                class="badge text-bg-light"
-                >{{ item.type }}</span
-              >
-            </p>
-            <p class="mb-0 d-inline-block text-truncate w-100">
-              {{ item.administrator }}
-            </p>
-            <p class="mb-0 d-inline-block text-truncate w-100">
-              Headquartered in {{ item.country_name }}
-            </p>
-            <a
-              [routerLink]="['/agencies', item.id]"
-              class="stretched-link"
-            >
-            </a>
-          </div>
-        </div>
-      </div> -->
+      </div>      
 
       } }
     </div>
