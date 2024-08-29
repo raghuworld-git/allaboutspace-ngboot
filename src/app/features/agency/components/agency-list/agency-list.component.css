@@ -3,8 +3,8 @@ img {
   object-fit: contain !important;
 }
 
-.large-screen-card {
+
   .card-text {
     font-size: 88%;
   }
-}
+

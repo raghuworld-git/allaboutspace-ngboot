@@ -12,7 +12,7 @@
       track $index) {
       <!-- d-none d-md-block -->
       <div class="col-12">
-        <div class="card large-screen-card shadow mb-3">
+        <div class="card shadow mb-3">
           <div class="row g-0">
             <div class="col-4">
               <img
@@ -24,32 +24,38 @@
             <div class="col-8">
               <div class="card-body ps-5">
                 <h6
-                  class="card-text fw-bold d-inline-block text-truncate w-100"
+                  class="card-text fw-bold d-inline-block w-100"
                   [title]="item.name"
                 >
-                  {{ $index + 1 }} - {{ item.name }}
+                {{ $index + 1 }} - {{ item.name }} 
                 </h6>
-                <p class="d-inline-block mb-1 text-truncate w-100">
-                  <span                   
+                <p class="card-text d-inline-block mb-0  w-100">
+                  <!-- <span                   
                     class="badge text-bg-light"
                     >{{ item.type }}</span
-                  >
+                  > -->
+                  <i class="bi bi-dot"></i> {{item.type}}
                 </p>
-                <p class="card-text mb-0 d-inline-block text-truncate w-100">
-                  {{ item.administrator }}
+                <p class="card-text mb-0 d-inline-block w-100">
+                  <i class="bi bi-dot"></i>  {{ item.administrator }}
                 </p>
-                <p class="card-text mb-0 d-inline-block text-truncate w-100">
-                  Headquartered in {{ item.country_name }}
+                <p class="card-text mb-3 d-inline-block  w-100">
+                  <i class="bi bi-dot"></i> Headquartered in {{ item.country_name }}
                 </p>
                 <a
                   [routerLink]="['/agencies', item.id]"
-                  class="btn btn-sm btn-outline-warning text-uppercase"
+                  class="btn btn-sm btn-outline-warning text-uppercase d-none d-md-inline"
                   style="
                     --bs-btn-padding-y: 0.25rem;
                     --bs-btn-padding-x: 0.5rem;
                     --bs-btn-font-size: 0.75rem;
                   "
                   >More about the Agency
+                </a>
+                <a
+                  [routerLink]="['/agencies', item.id]"
+                  class="stretched-link d-md-none"                  
+                  >
                 </a>
               </div>
             </div>
